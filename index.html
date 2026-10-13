@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusBlog — Stories that Matter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col justify-between selection:bg-brand-500 selection:text-white">
+
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-500 z-50 w-0 transition-all duration-150"></div>
+
+    <header
+        class="sticky top-0 z-40 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
+            <a href="#" class="flex items-center gap-3 group">
+                <div
+                    class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center text-white font-extrabold text-xl shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform">
+                    N
+                </div>
+                <span
+                    class="text-xl font-bold tracking-tight bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">
+                    Nexus<span class="text-brand-500">Blog</span>
+                </span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <a href="#home"
+                    class="text-brand-600 dark:text-brand-400 font-semibold hover:text-brand-500 transition-colors">Home</a>
+                <a href="#articles"
+                    class="text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-400 transition-colors">Articles</a>
+                <a href="#trending"
+                    class="text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-400 transition-colors">Trending</a>
+                <a href="#newsletter"
+                    class="text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-400 transition-colors">Newsletter</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle" aria-label="Toggle theme"
+                    class="w-10 h-10 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:block text-amber-400"></i>
+                </button>
+                <button id="mobile-menu-btn" aria-label="Open menu"
+                    class="md:hidden w-10 h-10 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-20 left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xl px-6 py-6 flex flex-col gap-4">
+            <a href="#home" class="mobile-link text-lg font-medium text-brand-600 dark:text-brand-400">Home</a>
+            <a href="#articles" class="mobile-link text-lg font-medium text-slate-700 dark:text-slate-300">Articles</a>
+            <a href="#trending" class="mobile-link text-lg font-medium text-slate-700 dark:text-slate-300">Trending</a>
+            <a href="#newsletter"
+                class="mobile-link text-lg font-medium text-slate-700 dark:text-slate-300">Newsletter</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+
+        <section id="home"
+            class="relative overflow-hidden py-16 md:py-24 border-b border-slate-200 dark:border-slate-800/60 bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div
+                            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 dark:bg-brand-500/10 border border-brand-200 dark:border-brand-500/20 text-brand-700 dark:text-brand-400 text-xs font-bold tracking-wide uppercase">
+                            <i class="fa-solid fa-bolt text-brand-500"></i> Featured Insight
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                            Design systems that scale & <span
+                                class="bg-gradient-to-r from-brand-600 to-emerald-400 bg-clip-text text-transparent">inspire
+                                the future.</span>
+                        </h1>
+                        <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl font-normal leading-relaxed">
+                            Dive deep into cutting-edge frontend architecture, UI/UX psychology, and modern web
+                            engineering practices crafted for creators and builders.
+                        </p>
+                        <div class="flex flex-wrap items-center gap-4 pt-2">
+                            <a href="#articles"
+                                class="px-7 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold shadow-lg shadow-brand-500/25 transition-all hover:-translate-y-0.5">
+                                Explore Articles <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                            </a>
+                            <a href="#newsletter"
+                                class="px-7 py-3.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 font-semibold transition-all">
+                                Join Newsletter
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5">
+                        <div
+                            class="relative group rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 transition-transform duration-500 hover:scale-[1.01]">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80"
+                                alt="Abstract 3D Art"
+                                class="w-full h-72 sm:h-80 object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="p-6 sm:p-8 space-y-3">
+                                <div
+                                    class="flex items-center gap-3 text-xs font-semibold text-brand-600 dark:text-brand-400">
+                                    <span>UI/UX Architecture</span>
+                                    <span>•</span>
+                                    <span>6 min read</span>
+                                </div>
+                                <h3
+                                    class="text-xl sm:text-2xl font-bold tracking-tight group-hover:text-brand-500 transition-colors">
+                                    The Psychology of Micro-Interactions in Modern Web Apps
+                                </h3>
+                                <p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-2">
+                                    How subtle tactile animations and feedback loops drive user retention and elevate
+                                    digital experiences from average to unforgettable.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="articles" class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Latest Articles</h2>
+                    <p class="text-slate-600 dark:text-slate-400 mt-2">Hand-crafted tutorials, opinions, and case
+                        studies.</p>
+                </div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                    <button id="new-article-button" type="button"
+                        class="px-4 py-2 rounded-xl text-sm font-semibold bg-brand-600 hover:bg-brand-700 text-white shadow-md shadow-brand-500/20 transition-colors">
+                        <i class="fa-solid fa-plus mr-2" aria-hidden="true"></i>New article
+                    </button>
+
+                    <div id="category-filters" class="flex flex-wrap gap-2">
+                        <button data-category="all"
+                            class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold bg-brand-600 text-white shadow-md shadow-brand-500/20 transition-all">All</button>
+                        <button data-category="Development"
+                            class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all">Development</button>
+                        <button data-category="Design"
+                            class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all">Design</button>
+                        <button data-category="AI & Tech"
+                            class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all">AI
+                            & Tech</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <article
+                    class="article-card group rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                    data-category="Development"
+                    data-full-content="Tailwind CSS v4 moves configuration into CSS, making design tokens easier to discover and maintain alongside the styles that use them. Its updated engine also generates utilities on demand, helping large projects keep builds fast.\n\nWhen upgrading, start by checking your theme tokens, custom utilities, and any plugins that depend on the previous configuration format. Migrate a small page first, compare the generated styles, and then update shared components. The result is a simpler foundation for consistent, scalable interfaces.">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
+                                alt="Code snippet"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-xs font-bold">Development</span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 font-medium">
+                                <span class="flex items-center gap-1"><i class="fa-regular fa-calendar"></i> Oct 12,
+                                    2026</span>
+                                <span>•</span>
+                                <span>5 min read</span>
+                            </div>
+                            <h3 class="text-xl font-bold tracking-tight group-hover:text-brand-500 transition-colors">
+                                Mastering Tailwind CSS v4: What's New and Why It Matters
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-3">
+                                Explore the lightning-fast CSS-first configuration engine, dynamic cascade layers, and
+                                brand new utility additions in Tailwind v4.
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="p-6 pt-0 flex items-center justify-between border-t border-slate-100 dark:border-slate-800/80 mt-4 pt-4">
+                        <div class="flex items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+                                alt="Author" class="w-8 h-8 rounded-full object-cover">
+                            <span class="text-sm font-semibold">Sarah Jenkins</span>
+                        </div>
+                        <button
+                            class="text-brand-500 hover:text-brand-600 font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            Read <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <article
+                    class="article-card group rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                    data-category="Design"
+                    data-full-content="Typography on mobile is a balancing act between readable text and limited space. Fluid sizing with clamp() lets type scale smoothly between a deliberate minimum and maximum, without abrupt jumps at device breakpoints.\n\nSet comfortable line lengths, test the largest headings on narrow screens, and give body copy enough line height to breathe. Pair fluid type with responsive spacing so the whole composition adapts together. A few real-device checks will catch awkward wraps that a desktop preview can hide.">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80"
+                                alt="Design workspace"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-xs font-bold">Design</span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 font-medium">
+                                <span class="flex items-center gap-1"><i class="fa-regular fa-calendar"></i> Oct 10,
+                                    2026</span>
+                                <span>•</span>
+                                <span>4 min read</span>
+                            </div>
+                            <h3 class="text-xl font-bold tracking-tight group-hover:text-brand-500 transition-colors">
+                                The Dark Art of Typography Scaling in Mobile Layouts
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-3">
+                                Achieve flawless readability across foldable phones, tablets, and massive desktop
+                                displays with fluid clamp() functions.
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="p-6 pt-0 flex items-center justify-between border-t border-slate-100 dark:border-slate-800/80 mt-4 pt-4">
+                        <div class="flex items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
+                                alt="Author" class="w-8 h-8 rounded-full object-cover">
+                            <span class="text-sm font-semibold">Alex Rivera</span>
+                        </div>
+                        <button
+                            class="text-brand-500 hover:text-brand-600 font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            Read <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <article
+                    class="article-card group rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                    data-category="AI & Tech"
+                    data-full-content="An agentic workflow gives a language model a goal, a set of tools, and clear rules for deciding what to do next. Rather than stopping after one response, the system can inspect results, choose another action, and keep working toward a useful outcome.\n\nReliable agents need more than a clever prompt. Limit tool permissions, validate inputs and outputs, set a maximum number of steps, and keep a human in the loop for consequential actions. Start with a narrow task and measure success before adding more autonomy.">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80"
+                                alt="AI Neural Network"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-xs font-bold">AI
+                                & Tech</span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 font-medium">
+                                <span class="flex items-center gap-1"><i class="fa-regular fa-calendar"></i> Oct 08,
+                                    2026</span>
+                                <span>•</span>
+                                <span>7 min read</span>
+                            </div>
+                            <h3 class="text-xl font-bold tracking-tight group-hover:text-brand-500 transition-colors">
+                                Building Agentic Workflows with Large Language Models
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-3">
+                                Transitioning from simple prompt-response interactions to autonomous multi-step
+                                problem-solving AI systems.
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="p-6 pt-0 flex items-center justify-between border-t border-slate-100 dark:border-slate-800/80 mt-4 pt-4">
+                        <div class="flex items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80"
+                                alt="Author" class="w-8 h-8 rounded-full object-cover">
+                            <span class="text-sm font-semibold">Elena Rostova</span>
+                        </div>
+                        <button
+                            class="text-brand-500 hover:text-brand-600 font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            Read <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <article
+                    class="article-card group rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                    data-category="Development"
+                    data-full-content="React Server Actions let a form or component call server-side logic directly, reducing the glue code often needed for mutations. They fit naturally with progressive enhancement and can keep sensitive work away from the browser.\n\nThey do not eliminate the need to think about API boundaries. Validate every submitted value on the server, handle loading and error states, and make authorization checks close to the data. For external clients or stable public contracts, a dedicated API can still be the clearer choice.">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80"
+                                alt="Laptop setup"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-xs font-bold">Development</span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 font-medium">
+                                <span class="flex items-center gap-1"><i class="fa-regular fa-calendar"></i> Oct 05,
+                                    2026</span>
+                                <span>•</span>
+                                <span>6 min read</span>
+                            </div>
+                            <h3 class="text-xl font-bold tracking-tight group-hover:text-brand-500 transition-colors">
+                                Server Actions in React 19: Goodbye REST APIs?
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-3">
+                                Discover how direct server-side mutations streamline data fetching, form handling, and
+                                caching without boilerplate code.
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="p-6 pt-0 flex items-center justify-between border-t border-slate-100 dark:border-slate-800/80 mt-4 pt-4">
+                        <div class="flex items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+                                alt="Author" class="w-8 h-8 rounded-full object-cover">
+                            <span class="text-sm font-semibold">Marcus Chen</span>
+                        </div>
+                        <button
+                            class="text-brand-500 hover:text-brand-600 font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            Read <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <article
+                    class="article-card group rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                    data-category="Design"
+                    data-full-content="Accessible color systems begin with enough contrast between text and its background. Check combinations in every state, including hover, focus, disabled, and dark mode, and do not rely on color alone to communicate meaning.\n\nBuild a small set of semantic tokens for surfaces, text, borders, and status colors. Test those tokens with real interface components rather than judging swatches in isolation. This keeps the palette expressive while making accessibility part of the design system instead of a last-minute patch.">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=800&q=80"
+                                alt="Color palette"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-xs font-bold">Design</span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 font-medium">
+                                <span class="flex items-center gap-1"><i class="fa-regular fa-calendar"></i> Oct 02,
+                                    2026</span>
+                                <span>•</span>
+                                <span>3 min read</span>
+                            </div>
+                            <h3 class="text-xl font-bold tracking-tight group-hover:text-brand-500 transition-colors">
+                                Creating Accessible Color Palettes for Enterprise SaaS
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-3">
+                                Ensuring WCAG AAA compliance without sacrificing brand personality, vibrant accents, or
+                                elegant dark mode contrast.
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="p-6 pt-0 flex items-center justify-between border-t border-slate-100 dark:border-slate-800/80 mt-4 pt-4">
+                        <div class="flex items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+                                alt="Author" class="w-8 h-8 rounded-full object-cover">
+                            <span class="text-sm font-semibold">Chloe Vance</span>
+                        </div>
+                        <button
+                            class="text-brand-500 hover:text-brand-600 font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            Read <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <article
+                    class="article-card group rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                    data-category="AI & Tech"
+                    data-full-content="Zero-trust security assumes that no request is trustworthy just because it came from inside a network. Each service and user should prove its identity, and access should be limited to the specific resources needed for the task.\n\nCombine short-lived credentials, strong workload identity, encrypted service communication, and useful audit logs. Roll out policies incrementally and monitor denied requests so teams can find legitimate dependencies before tightening access further. The goal is continuous verification that fits the way the system actually operates.">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"
+                                alt="Cybersecurity Matrix"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-xs font-bold">AI
+                                & Tech</span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 font-medium">
+                                <span class="flex items-center gap-1"><i class="fa-regular fa-calendar"></i> Sep 28,
+                                    2026</span>
+                                <span>•</span>
+                                <span>8 min read</span>
+                            </div>
+                            <h3 class="text-xl font-bold tracking-tight group-hover:text-brand-500 transition-colors">
+                                Zero-Trust Architecture in Modern Cloud Native Deployments
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-3">
+                                Why perimeter security is dead and how continuous identity verification protects
+                                distributed microservices from sophisticated breaches.
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="p-6 pt-0 flex items-center justify-between border-t border-slate-100 dark:border-slate-800/80 mt-4 pt-4">
+                        <div class="flex items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80"
+                                alt="Author" class="w-8 h-8 rounded-full object-cover">
+                            <span class="text-sm font-semibold">David Vance</span>
+                        </div>
+                        <button
+                            class="text-brand-500 hover:text-brand-600 font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            Read <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="trending"
+            class="py-16 bg-white dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-end justify-between gap-4 mb-8">
+                    <div>
+                        <p class="text-sm font-bold uppercase text-brand-600 dark:text-brand-400">Popular this week</p>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mt-2">Trending Stories</h2>
+                    </div>
+                    <i class="fa-solid fa-arrow-trend-up text-2xl text-brand-500" aria-hidden="true"></i>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <a href="#articles" class="group border-t-2 border-brand-500 pt-5">
+                        <span class="text-sm font-bold text-brand-600 dark:text-brand-400">01 / Development</span>
+                        <h3 class="mt-3 text-lg font-bold group-hover:text-brand-500 transition-colors">Mastering
+                            Tailwind CSS v4: What's New and Why It Matters</h3>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">A faster, CSS-first approach to
+                            building consistent interfaces.</p>
+                    </a>
+                    <a href="#articles"
+                        class="group border-t-2 border-slate-300 dark:border-slate-700 hover:border-brand-500 pt-5 transition-colors">
+                        <span class="text-sm font-bold text-brand-600 dark:text-brand-400">02 / AI &amp; Tech</span>
+                        <h3 class="mt-3 text-lg font-bold group-hover:text-brand-500 transition-colors">Building Agentic
+                            Workflows with Large Language Models</h3>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">How autonomous systems plan, use
+                            tools, and complete complex tasks.</p>
+                    </a>
+                    <a href="#articles"
+                        class="group border-t-2 border-slate-300 dark:border-slate-700 hover:border-brand-500 pt-5 transition-colors">
+                        <span class="text-sm font-bold text-brand-600 dark:text-brand-400">03 / Design</span>
+                        <h3 class="mt-3 text-lg font-bold group-hover:text-brand-500 transition-colors">The Dark Art of
+                            Typography Scaling in Mobile Layouts</h3>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Make every heading and paragraph feel
+                            at home on every screen.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <dialog id="article-reader" aria-labelledby="reader-title"
+            class="w-[calc(100%-2rem)] max-w-2xl max-h-[85vh] p-0 rounded-2xl bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 shadow-2xl backdrop:bg-slate-950/60">
+            <div
+                class="flex items-start justify-between gap-6 border-b border-slate-200 dark:border-slate-800 p-6 sm:p-8">
+                <div>
+                    <p id="reader-category" class="text-sm font-bold text-brand-600 dark:text-brand-400"></p>
+                    <h2 id="reader-title" class="mt-2 text-2xl sm:text-3xl font-extrabold"></h2>
+                    <p id="reader-author" class="mt-3 text-sm text-slate-500 dark:text-slate-400"></p>
+                </div>
+                <button id="reader-close" type="button" aria-label="Close article"
+                    class="shrink-0 w-10 h-10 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div id="reader-content"
+                class="p-6 sm:p-8 text-base leading-8 text-slate-700 dark:text-slate-300 whitespace-pre-line"></div>
+        </dialog>
+
+        <dialog id="new-article-dialog" aria-labelledby="new-article-title"
+            class="w-[calc(100%-2rem)] max-w-2xl max-h-[90vh] overflow-y-auto p-0 rounded-2xl bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 shadow-2xl backdrop:bg-slate-950/60">
+            <form id="new-article-form" class="p-6 sm:p-8 space-y-5">
+                <div>
+                    <p class="text-sm font-bold uppercase text-brand-600 dark:text-brand-400">Create a story</p>
+                    <h2 id="new-article-title" class="mt-2 text-2xl font-extrabold">New article</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <label class="sm:col-span-2 text-sm font-semibold">Title
+                        <input name="title" required maxlength="120"
+                            class="mt-2 w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 font-normal"
+                            placeholder="Give your article a title">
+                    </label>
+                    <label class="text-sm font-semibold">Category
+                        <select name="category" required
+                            class="mt-2 w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 font-normal">
+                            <option>Development</option>
+                            <option>Design</option>
+                            <option>AI &amp; Tech</option>
+                        </select>
+                    </label>
+                    <label class="text-sm font-semibold">Author
+                        <input name="author" required maxlength="60"
+                            class="mt-2 w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 font-normal"
+                            placeholder="Your name">
+                    </label>
+                    <label class="sm:col-span-2 text-sm font-semibold">Short description
+                        <textarea name="description" required maxlength="220" rows="2"
+                            class="mt-2 w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 font-normal resize-y"
+                            placeholder="A brief preview shown on the article card"></textarea>
+                    </label>
+                    <label class="sm:col-span-2 text-sm font-semibold">Article content
+                        <textarea name="content" required minlength="40" rows="7"
+                            class="mt-2 w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 font-normal resize-y"
+                            placeholder="Write your full article here"></textarea>
+                    </label>
+                    <label class="sm:col-span-2 text-sm font-semibold">Cover image URL <span
+                            class="font-normal text-slate-500">(optional)</span>
+                        <input name="image" type="url"
+                            class="mt-2 w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 font-normal"
+                            placeholder="https://example.com/image.jpg">
+                    </label>
+                </div>
+                <p id="new-article-error" class="hidden text-sm font-medium text-red-600 dark:text-red-400"
+                    role="alert"></p>
+                <div class="flex justify-end gap-3 pt-2">
+                    <button id="cancel-new-article" type="button"
+                        class="px-4 py-2.5 rounded-xl text-sm font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Cancel</button>
+                    <button type="submit"
+                        class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-brand-600 hover:bg-brand-700 text-white transition-colors">Publish
+                        article</button>
+                </div>
+            </form>
+        </dialog>
+
+        <section id="newsletter"
+            class="py-20 bg-slate-100 dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-800">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+                <div
+                    class="w-14 h-14 rounded-2xl bg-brand-500/10 text-brand-500 flex items-center justify-center mx-auto text-2xl shadow-inner">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Stay ahead of the curve.</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-xl mx-auto text-base">
+                    Get weekly curated digests of top stories, engineering breakdowns, and design resources delivered
+                    straight to your inbox. No spam ever.
+                </p>
+                <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto pt-4">
+                    <input type="email" id="newsletter-input" required placeholder="Enter your email address..."
+                        class="flex-grow px-4 py-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 text-slate-900 dark:text-white text-sm">
+                    <button type="submit"
+                        class="px-7 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm shadow-lg shadow-brand-500/20 transition-all">
+                        Subscribe
+                    </button>
+                </form>
+                <p id="newsletter-success" class="hidden text-emerald-500 font-semibold text-sm mt-2">
+                    <i class="fa-solid fa-circle-check"></i> Thank you for subscribing! Check your inbox soon.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 transition-colors">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-bold text-sm">
+                    N
+                </div>
+                <span class="text-lg font-bold tracking-tight">NexusBlog</span>
+            </div>
+            <p class="text-sm text-slate-500 dark:text-slate-400">
+                &copy; 2026 NexusBlog Inc. All rights reserved.
+            </p>
+            <div class="flex items-center gap-5 text-slate-500 dark:text-slate-400">
+                <a href="#" class="hover:text-brand-500 transition-colors"><i
+                        class="fa-brands fa-x-twitter text-lg"></i></a>
+                <a href="https://github.com/Atharva2580" class="hover:text-brand-500 transition-colors"><i
+                        class="fa-brands fa-github text-lg"></i></a>
+                <a href="https://www.linkedin.com/in/atharva-hanamghar-401abb3b5/"
+                    class="hover:text-brand-500 transition-colors"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                <a href="#" class="hover:text-brand-500 transition-colors"><i
+                        class="fa-brands fa-discord text-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
